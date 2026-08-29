@@ -6,7 +6,6 @@
  * Course     : GI113 Computer Programming (GI)
  */
 
-using System;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Lab02
