@@ -6,6 +6,7 @@
  * Course     : GI113 Computer Programming (GI)
  */
 
+using System;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Lab02
@@ -37,10 +38,11 @@ namespace Lab02
             Console.WriteLine($"HP Percent: {hpPercent}%");
             Console.WriteLine();
             Console.WriteLine("Kirin takes 60 damage!");
+            int newcurrentHp = currentHp - 60;
             Console.WriteLine();
             Console.WriteLine("===== BOSS STATUS: AFTER DAMAGE =====");
-            Console.WriteLine($"HP: {currentHp} / {maxHp}");
-            Console.WriteLine($"HP Percent: 47%");
+            Console.WriteLine($"HP: {newcurrentHp} / {maxHp}");
+            Console.WriteLine($"HP Percent: {newcurrentHp * 100 / maxHp}%");
         }
     }
 }
