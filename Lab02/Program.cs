@@ -37,14 +37,16 @@ namespace Lab02
             Console.WriteLine($"HP Percent: {hpPercent}%");
             Console.WriteLine();
             Console.WriteLine("Kirin takes 60 damage!");
-            int newcurrentHp = currentHp - 60;
+            currentHp = currentHp - 60;
             Console.WriteLine();
             Console.WriteLine("===== BOSS STATUS: AFTER DAMAGE =====");
-            Console.WriteLine($"HP: {newcurrentHp} / {maxHp}");
-            Console.WriteLine($"HP Percent: {newcurrentHp * 100 / maxHp}%");
-            Console.WriteLine();
+            Console.WriteLine($"HP: {currentHp} / {maxHp}");
+            Console.WriteLine($"HP Percent: {currentHp * 100 / maxHp}%");
+            Console.WriteLine();    
 
-            Console.WriteLine("===== Game Kak =====");
+            //Part B
+
+            Console.WriteLine("===== PartB : Game Kak =====\n");
             string Name1 = "Peak";
             char rank1 = 'S';
             int level1 = 5;
