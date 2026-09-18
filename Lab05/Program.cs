@@ -1,4 +1,12 @@
-﻿namespace Lab05
+﻿/*
+* Student ID : 1690703457
+* Name       : Kittipop Mongkol
+* Section    : 129A
+* No.        : 
+* Course     : GI113 Computer Programming (GI)
+*/
+
+namespace Lab05
 {
     internal class Program
     {
