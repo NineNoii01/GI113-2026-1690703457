@@ -77,52 +77,73 @@ namespace Lab06
             int heroHP = 100;
             int monHP = 100;
             int atk = 50;
+            int defend = atk / 2;
 
-            Console.WriteLine("Adventure of Brian");
-            Console.WriteLine(">==== Monster Encounter 1 <====");
-            Console.WriteLine("ACTION A: ATTACK");
-            Console.WriteLine("ACTION B: FLEE");
-            Console.WriteLine("ACTION C: DEFEND\n");
-
-            Console.WriteLine("Your turn.");
+            Console.WriteLine("Monster Slayer");
+            Console.WriteLine(">==== Monster Found <====\n");
+            
+            Console.WriteLine("Press 1: Fight");
+            Console.WriteLine("Press 2: Flee\n");
             Console.Write("Choose your action: ");
-            bool inputOk = char.TryParse(Console.ReadLine(), out char choice);
-
-            if (!inputOk || (choice != 'a' && choice != 'A' && choice != 'b' && choice != 'B' && choice != 'c' && choice != 'C'))
+            bool inputOk01 = int.TryParse(Console.ReadLine(), out int choice01);
+            if (!inputOk01 || (choice01 != 1 && choice01 != 2))
             {
-                Console.WriteLine("Invalid input. Please choose between A and B.");
+                Console.WriteLine("Invalid input. Please choose between 1 and 2.");
             }
-            else if (choice == 'a' || choice == 'A')
+            else if (choice01 == 1)
             {
-                Console.WriteLine("You attacked the monster.");
-                monHP -= atk;
-                Console.WriteLine($"You attacked the monster for {atk} points. Monster HP: {monHP}");
-                if (monHP <= 0)
+                Console.WriteLine("You chose to fight the monster.");
+                Console.WriteLine("ACTION A: ATTACK");
+                Console.WriteLine("ACTION B: FLEE");
+                Console.WriteLine("ACTION C: DEFEND\n");
+
+                Console.WriteLine("Your turn.\n");
+                Console.Write("Choose your action: ");
+                bool inputOk02 = char.TryParse(Console.ReadLine(), out char choice02);
+
+                if (!inputOk02 || (choice02 != 'a' && choice02 != 'A' && choice02 != 'b' && choice02 != 'B' && choice02 != 'c' && choice02 != 'C'))
                 {
-                    Console.WriteLine($"Player attack monster with {atk} points, Monster defeated!!!");
+                    Console.WriteLine("Invalid input. Please choose between A, B, and C.");
+                }
+                else if (choice02 == 'a' || choice02 == 'A')
+                {
+                    Console.WriteLine("You attacked the monster.");
+                    monHP -= atk;
+                    Console.WriteLine($"You attacked the monster for {atk} points.");
+                    if (monHP <= 0)
+                    {
+                        Console.WriteLine($"Player attack monster with {atk} points, Monster defeated!!!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Player attack monster with {atk} points, Monster HP has {monHP}HP left.");
+                    }
+                }
+                else if (choice02 == 'b' || choice02 == 'B')
+                {
+                    Console.WriteLine("You fled from the monster.");
+                    heroHP -= atk;
+                    Console.WriteLine($"You fled from the monster. You got attacked for {atk} damage. Your HP: {heroHP}");
+
+                }
+                else if (choice02 == 'c' || choice02 == 'C')
+                {
+                    Console.WriteLine("You defended against the monster's attack.");
+                    heroHP -= defend;
+                    Console.WriteLine($"You defended against the monster's attack. You took {defend} points. Your HP: {heroHP}");
                 }
                 else
                 {
-                    Console.WriteLine($"Player attack monster with {atk} points, Monster HP has {monHP}HP left.");
+                    Console.WriteLine("Timeout: You ran out of time.");
                 }
-            }
-            else if (choice == 'b' || choice == 'B')
-            {
-                Console.WriteLine("You fled from the monster.");
-                heroHP -= atk;
-                Console.WriteLine($"You fled from the monster. You got attacked for {atk} damage. Your HP: {heroHP}");
-
-            }
-            else if (choice == 'c' || choice == 'C')
-            {
-                Console.WriteLine("You defended against the monster's attack.");
-                heroHP -= atk / 2;
-                Console.WriteLine($"You defended against the monster's attack. You took {atk / 2} points. Your HP: {heroHP}");
             }
             else
             {
-                Console.WriteLine("Timeout: You ran out of time.");
+                Console.WriteLine("You chose to flee from the monster.");
             }
+
+            
+            
         }
     }
 }
