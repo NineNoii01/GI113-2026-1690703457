@@ -76,17 +76,19 @@ namespace Lab06
 
             int heroHP = 100;
             int monHP = 100;
-            int atk = 100;
+            int atk = 50;
 
             Console.WriteLine("Adventure of Brian");
             Console.WriteLine(">==== Monster Encounter 1 <====");
             Console.WriteLine("ACTION A: ATTACK");
-            Console.WriteLine("ACTION B: FLEE\n");
+            Console.WriteLine("ACTION B: FLEE");
+            Console.WriteLine("ACTION C: DEFEND\n");
 
+            Console.WriteLine("Your turn.");
             Console.Write("Choose your action: ");
             bool inputOk = char.TryParse(Console.ReadLine(), out char choice);
 
-            if (!inputOk || (choice != 'a' && choice != 'A' && choice != 'b' && choice != 'B'))
+            if (!inputOk || (choice != 'a' && choice != 'A' && choice != 'b' && choice != 'B' && choice != 'c' && choice != 'C'))
             {
                 Console.WriteLine("Invalid input. Please choose between A and B.");
             }
@@ -110,6 +112,12 @@ namespace Lab06
                 heroHP -= atk;
                 Console.WriteLine($"You fled from the monster. You got attacked for {atk} damage. Your HP: {heroHP}");
 
+            }
+            else if (choice == 'c' || choice == 'C')
+            {
+                Console.WriteLine("You defended against the monster's attack.");
+                heroHP -= atk / 2;
+                Console.WriteLine($"You defended against the monster's attack. You took {atk / 2} points. Your HP: {heroHP}");
             }
             else
             {
