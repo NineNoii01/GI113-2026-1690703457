@@ -1,4 +1,12 @@
-﻿namespace Lab06
+﻿/*
+* Student ID : 1690703457
+* Name       : Kittipop Mongkol
+* Section    : 129A
+* No.        : 
+* Course     : GI113 Computer Programming (GI)
+*/
+
+namespace Lab06
 {
     internal class Program
     {
@@ -66,8 +74,47 @@
             //    Console.WriteLine("The door stays shut.");
             //}
 
-            Console.WriteLine("");
+            int heroHP = 100;
+            int monHP = 100;
+            int atk = 100;
 
+            Console.WriteLine("Adventure of Brian");
+            Console.WriteLine(">==== Monster Encounter 1 <====");
+            Console.WriteLine("ACTION A: ATTACK");
+            Console.WriteLine("ACTION B: FLEE\n");
+
+            Console.Write("Choose your action: ");
+            bool inputOk = char.TryParse(Console.ReadLine(), out char choice);
+
+            if (!inputOk || (choice != 'a' && choice != 'A' && choice != 'b' && choice != 'B'))
+            {
+                Console.WriteLine("Invalid input. Please choose between A and B.");
+            }
+            else if (choice == 'a' || choice == 'A')
+            {
+                Console.WriteLine("You attacked the monster.");
+                monHP -= atk;
+                Console.WriteLine($"You attacked the monster for {atk} points. Monster HP: {monHP}");
+                if (monHP <= 0)
+                {
+                    Console.WriteLine($"Player attack monster with {atk} points, Monster defeated!!!");
+                }
+                else
+                {
+                    Console.WriteLine($"Player attack monster with {atk} points, Monster HP has {monHP}HP left.");
+                }
+            }
+            else if (choice == 'b' || choice == 'B')
+            {
+                Console.WriteLine("You fled from the monster.");
+                heroHP -= atk;
+                Console.WriteLine($"You fled from the monster. You got attacked for {atk} damage. Your HP: {heroHP}");
+
+            }
+            else
+            {
+                Console.WriteLine("Timeout: You ran out of time.");
+            }
         }
     }
 }
