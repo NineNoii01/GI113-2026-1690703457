@@ -20,12 +20,12 @@ namespace Assignment02
             const double maxBatch = 500.00;
             var inGot = 0.0;
             var ore = 0.0;
-            Console.WriteLine("=============ForgingStation=============");
-            Console.WriteLine("-------This is the rate for today-------");
-            Console.WriteLine($"{name} ore Smelting 0.30 / Salvage 0.40");
-            Console.WriteLine("Key 'S' for Smelt (Ore -> Ingot)");
-            Console.WriteLine("Key 'B' for Breakdown (Ingot -> Ore)");
-            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("|=============ForgingStation=============|");
+            Console.WriteLine("|-------This is the rate for today-------|");
+            Console.WriteLine($"| {name} ore Smelting 0.30 / Salvage 0.40  |");
+            Console.WriteLine("|    Key 'S' for Smelt (Ore -> Ingot)    |");
+            Console.WriteLine("|  Key 'B' for Breakdown (Ingot -> Ore)  |");
+            Console.WriteLine("|----------------------------------------|");
             Console.Write("Select what  you want to do : ");
             bool iskeychar = char.TryParse(Console.ReadLine(), out char key);
 
